@@ -1,5 +1,5 @@
 # import main Flask class and request object
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import sqlite3
 
 # create the Flask app
@@ -49,7 +49,7 @@ def query_example():
 		row_dict["Impressions"] = row[-1]
 		rows.append(row_dict)
 
-	return '''<h1>The aggregated output is \n: {}</h1>'''.format(rows)
+	return jsonify(rows)
 
 if __name__ == '__main__':
     # run app in debug mode on port 5000
